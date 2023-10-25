@@ -32,3 +32,220 @@ models:
         tests:
           - unique
           - not_null
+
+   - name: title_akas_model
+    description: "A regional title alias"
+    columns:
+      - name: titleId
+        description: "an alphanumeric unique identifier of the title"
+        tests:
+          - unique
+          - not_null
+      - name: ordering
+        description: "a number to uniquely identify rows for a given titleId"
+        tests:
+          - unique
+          - not_null
+      - name: title
+        description: "the localized title"
+        tests:
+          - unique
+          - not_null
+      - name: region
+        description: "the region for this version of the title"
+        tests:
+          - unique
+          - not_null
+      - name: language
+        description: "the language of the title"
+        tests:
+          - unique
+          - not_null
+      - name: types
+        description: 'Enumerated set of attributes for this alternative title. One or more of the following: "alternative", "dvd", "festival", "tv", "video", "working", "original", "imdbDisplay". New values may be added in the future without warning'
+        tests:
+          - unique
+          - not_null
+      - name: attributes
+        description: "Additional terms to describe this alternative title, not enumerated"
+        tests:
+          - unique
+          - not_null
+      - name: isOriginalTitle
+        description: "if this title is original, or not or unknown"
+        tests:
+          - unique
+          - not_null
+  - name: title_basics_model
+    description: "The characteristics of the title"
+    columns:
+      - name: tconst
+        description: "alphanumeric unique identifier of the title"
+        tests:
+          - unique
+          - not_null
+      - name: titleType
+        description: "the type/format of the title (e.g. movie, short, tvseries, tvepisode, video, etc)"
+        tests:
+          - unique
+          - not_null
+      - name: primaryTitle
+        description: "the more popular title / the title used by the filmmakers on promotional materials at the point of release"
+        tests:
+          - unique
+          - not_null
+      - name: originalTitle
+        description: "original title, in the original language"
+        tests:
+          - unique
+          - not_null
+      - name: isAdult
+        description: "adult film"
+        tests:
+          - unique
+          - not_null 
+      - name: startYear
+        description: "represents the release year of a title. In the case of TV Series, it is the series start year"
+        tests:
+          - unique
+          - not_null 
+      - name: endYear
+        description: "TV Series end year. ‘\N’ for all other title types"
+        tests:
+          - unique
+          - not_null
+      - name: runtimeMinutes
+        description: "primary runtime of the title, in minutes"
+        tests:
+          - unique
+          - not_null 
+      - name: genres
+        description: "includes up to three genres associated with the title"
+        tests:
+          - unique
+          - not_null
+    - name: title_crew_model
+    description: "The crew working on the production  of the title"
+    columns:
+      - name: tconst
+        description: "alphanumeric unique identifier of the title"
+        tests:
+          - unique
+          - not_null
+      - name: directors
+        description: "director(s) of the given title"
+        tests:
+          - unique
+          - not_null
+      - name: writers
+        description: "writer(s) of the given title"
+        tests:
+          - is_nconst_array
+          - not_null
+    - name: title_episode_model
+    description: "The episode data"
+    columns:
+      - name: tconst
+        description: "alphanumeric identifier of episode"
+        tests:
+          - is_nconst_array
+          - not_null
+      - name: parentTconst
+        description: "alphanumeric identifier of the parent TV Series"
+        tests:
+          - is_nconst_array
+          - not_null
+      - name: seasonNumber
+        description: "season number the episode belongs to"
+        tests:
+          - unique
+          - not_null
+      - name: episodeNumber
+        description: "episode number of the tconst in the TV series"
+        tests:
+          - is_nconst_array
+          - not_null
+    - name: title_principals_model
+    description: "The principals of a title"
+    columns:
+      - name: tconst
+        description: "alphanumeric unique identifier of the title"
+        tests:
+          - is_nconst_array
+          - not_null
+      - name: ordering
+        description: "a number to uniquely identify rows for a given titleId"
+        tests:
+          - is_nconst_array
+          - not_null
+      - name: nconst
+        description: "alphanumeric unique identifier of the name/person"
+        tests:
+          - unique
+          - not_null
+      - name: category
+        description: "the category of job that person was in"
+        tests:
+          - is_nconst_array
+          - not_null
+      - name: job
+        description: "the specific job title if applicable"
+        tests:
+          - is_nconst_array
+          - not_null
+      - name: characters
+        description: "the name of the character played if applicable,"
+        tests:
+          - is_nconst_array
+          - not_null
+    - name: title_ratings_model
+    description: "The ratings of a title"
+    columns:
+      - name: tconst
+        description: "alphanumeric unique identifier of the title"
+        tests:
+          - is_nconst_array
+          - not_null
+      - name: averageRating
+        description: "weighted average of all the individual user ratings"
+        tests:
+          - is_nconst_array
+          - not_null
+      - name: numVotes
+        description: "number of votes the title has received"
+        tests:
+          - unique
+          - not_null
+    - name: name_basics_model
+    description: "The details for contributors"
+    columns:
+      - name: nconst
+        description: "alphanumeric unique identifier of the name/person"
+        tests:
+          - is_nconst_array
+          - not_null
+      - name: primaryName
+        description: "name by which the person is most often credited"
+        tests:
+          - is_nconst_array
+          - not_null
+      - name: birthYear
+        description: "in YYYY format"
+        tests:
+          - unique
+          - not_null
+      - name: deathYear
+        description: "in YYYY format if applicable"
+        tests:
+          - unique
+          - not_null
+      - name: primaryProfession
+        description: "the top-3 professions of the person"
+        tests:
+          - unique
+          - not_null
+      - name: knownForTitles
+        description: "titles the person is known for"
+        tests:
+          - unique
+          - not_null
