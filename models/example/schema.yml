@@ -15,6 +15,7 @@ sources:
       - name: title.episode
 
 models:
+  - name: my_testing_model
   - name: my_first_dbt_model
     description: "A starter dbt model"
     columns:
@@ -33,7 +34,7 @@ models:
           - unique
           - not_null
 
-   - name: title_akas_model
+  - name: title_akas_model
     description: "A regional title alias"
     columns:
       - name: titleId
@@ -124,7 +125,7 @@ models:
         tests:
           - unique
           - not_null
-    - name: title_crew_model
+  - name: title_crew_model
     description: "The crew working on the production  of the title"
     columns:
       - name: tconst
@@ -142,7 +143,7 @@ models:
         tests:
           - is_nconst_array
           - not_null
-    - name: title_episode_model
+  - name: title_episode_model
     description: "The episode data"
     columns:
       - name: tconst
@@ -165,7 +166,7 @@ models:
         tests:
           - is_nconst_array
           - not_null
-    - name: title_principals_model
+  - name: title_principals_model
     description: "The principals of a title"
     columns:
       - name: tconst
@@ -198,7 +199,7 @@ models:
         tests:
           - is_nconst_array
           - not_null
-    - name: title_ratings_model
+  - name: title_ratings_model
     description: "The ratings of a title"
     columns:
       - name: tconst
@@ -216,7 +217,7 @@ models:
         tests:
           - unique
           - not_null
-    - name: name_basics_model
+  - name: name_basics_model
     description: "The details for contributors"
     columns:
       - name: nconst

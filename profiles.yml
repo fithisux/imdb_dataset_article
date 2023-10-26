@@ -1,0 +1,6 @@
+imdb_dataset_article:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: 'database_files/dev.duckdb'
