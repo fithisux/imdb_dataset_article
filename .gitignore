@@ -1,4 +1,4 @@
-.DS_Store
-*.duckdb
+./.DS_Store
+./dev.duckdb
 logs/*
 target/*
