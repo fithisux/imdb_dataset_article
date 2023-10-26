@@ -1,4 +1,4 @@
-/.DS_Store
-/dev.duckdb
+database_files/*
+!database_files
 logs/*
 target/*
