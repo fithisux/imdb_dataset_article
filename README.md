@@ -8,6 +8,9 @@ Demo code for an article. Download to an `imdb_files` folder in the parent of th
 ### Using the starter project
 
 Try running the following commands:
+Create a database_files folder. Now you can
+
+- dbt seed
 - dbt run
 - dbt test
 
