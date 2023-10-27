@@ -1,0 +1,47 @@
+
+version: 2
+
+models:
+  - name: title_basics_model
+    description: "The characteristics of the title"
+    tests:
+      - dbt_utils.expression_is_true:
+            expression: "len(genres) < 4"
+    columns:
+      - name: tconst
+        description: "alphanumeric unique identifier of the title"
+        tests:
+          - unique
+          - not_null
+      - name: titleType
+        description: "the type/format of the title (e.g. movie, short, tvseries, tvepisode, video, etc)"
+        tests:
+          - not_null
+      - name: primaryTitle
+        description: "the more popular title / the title used by the filmmakers on promotional materials at the point of release"
+        tests:
+          - not_null
+      - name: originalTitle
+        description: "original title, in the original language"
+        tests:
+          - not_null
+      - name: isAdult
+        description: "adult film"
+        tests:
+          - not_null
+      - name: startYear
+        description: "represents the release year of a title. In the case of TV Series, it is the series start year"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ' between 1000 and 9999'
+      - name: endYear
+        description: "TV Series end year. null for all other title types"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ' between 1000 and 9999'
+      - name: runtimeMinutes
+        description: "primary runtime of the title, in minutes"
+      - name: genres
+        description: "includes up to three genres associated with the title"
+        tests:
+          - not_null

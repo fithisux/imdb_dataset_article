@@ -1,0 +1,59 @@
+
+version: 2
+
+models:
+  #- name: title_akas_model
+  - name: title_akas_model_cleansed
+    description: "A regional title alias"
+    tests:
+      - array_column_has_specific_values:
+          id_column : titleId
+          array_column: types
+          value_list:
+            - alternative
+            - tv
+            - dvd
+            - festival
+            - video
+            - working
+            - original
+            - imdbDisplay
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - titleId
+            - ordering
+    columns:
+      - name: titleId
+        description: "an alphanumeric identifier of the title"
+        tests:
+          - not_null
+      - name: ordering
+        description: "a number to uniquely identify rows for a given titleId"
+        tests:
+          - not_null
+      - name: title
+        description: "the localized title"
+        tests:
+          - not_null
+      - name: region
+        description: "the region for this version of the title"
+        tests:
+          - relationships:
+              to: ref('countries_with_regional_codes')
+              field: alpha2
+      - name: language
+        description: "the language of the title"
+        tests:
+          - relationships:
+              to: ref('language_codes')
+              field: alpha2
+      - name: types
+        description: 'Enumerated set of attributes for this alternative title. New values may be added in the future without warning'
+        tests:
+          - not_null
+      - name: attributes
+        tests:
+          - not_null
+        description: "Additional terms to describe this alternative title, not enumerated"
+      - name: isOriginalTitle
+        description: "if this title is original, or not or unknown"

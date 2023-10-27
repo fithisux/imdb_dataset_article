@@ -1,0 +1,23 @@
+
+version: 2
+
+models:
+  - name: title_ratings_model
+    description: "The ratings of a title"
+    columns:
+      - name: tconst
+        description: "alphanumeric unique identifier of the title"
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('title_basics_model')
+              field: tconst
+      - name: averageRating
+        description: "weighted average of all the individual user ratings"
+        tests:
+          - not_null
+      - name: numVotes
+        description: "number of votes the title has received"
+        tests:
+          - not_null

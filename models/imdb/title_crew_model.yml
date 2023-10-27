@@ -1,0 +1,23 @@
+
+version: 2
+
+models:
+  - name: title_crew_model
+    description: "The crew working on the production  of the title"
+    columns:
+      - name: tconst
+        description: "alphanumeric unique identifier of the title"
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('title_basics_model')
+              field: tconst
+      - name: directors
+        description: "director(s) of the given title"
+        tests:
+          - not_null
+      - name: writers
+        description: "writer(s) of the given title"
+        tests:
+          - not_null

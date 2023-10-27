@@ -33,5 +33,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   imdb_dataset_article:
     # Config indicated by + and applies to all files under models/example/
-    example:
+    imdb:
       +materialized: view

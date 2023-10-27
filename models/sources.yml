@@ -1,0 +1,15 @@
+
+version: 2
+
+sources:
+  - name: external_source
+    meta:
+      external_location: "read_csv('../imdb_files/{name}.tsv.gz', delim='\t', quote='', all_varchar=true, header=true, AUTO_DETECT=TRUE)"
+    tables:
+      - name: name.basics
+      - name: title.akas
+      - name: title.basics
+      - name: title.crew
+      - name: title.principals
+      - name: title.ratings
+      - name: title.episode
