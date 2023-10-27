@@ -15,8 +15,8 @@ with source_data_title_crew as (
     select
 
     cast(tconst as string) as tconst,
-    regexp_split_to_array(coalesce(directors, ''), '\x02') as directors,
-    regexp_split_to_array(coalesce(writers, ''), '\x02') as writers,
+    case when directors is not null then regexp_split_to_array(directors, '\x02') else [] end as directors,
+    case when writers is not null then regexp_split_to_array(writers, '\x02') else [] end as writers
 
     FROM source_data_title_crew
 

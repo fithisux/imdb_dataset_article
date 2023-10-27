@@ -11,7 +11,7 @@ with source_data_title_akas as (
     case when language='\N' then NULL else language end as language,
     case when types='\N' then NULL else types end as types,
     case when attributes='\N' then NULL else attributes end as attributes,
-    case when isOriginalTitle='\N' then NULL else isOriginalTitle end as isOriginalTitle,
+    case when isOriginalTitle='\N' then NULL else isOriginalTitle end as isOriginalTitle
 
     FROM {{ source('external_source', 'title.akas') }}
 
@@ -24,8 +24,8 @@ with source_data_title_akas as (
     cast(title as string) as title,
     cast(region as string) as region,
     cast(language as string) as language,
-    regexp_split_to_array(coalesce(types, ''), '\x02') as types,
-    regexp_split_to_array(coalesce(attributes, ''), '\x02') as attributes,
+    case when types is not null then regexp_split_to_array(types, '\x02') else [] end as types,
+    case when attributes is not null then regexp_split_to_array(attributes, '\x02') else [] end as attributes,
     cast(isOriginalTitle as boolean) as isOriginalTitle
 
     FROM source_data_title_akas

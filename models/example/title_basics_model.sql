@@ -26,9 +26,9 @@ with source_data_title_basics as (
     cast(originalTitle as string) as originalTitle,
     cast(isAdult as boolean) as isAdult,
     cast(startYear as integer) as startYear,
-    cast(runtimeMinutes as integer) as endYear,
     cast(endYear as integer) as endYear,
-    regexp_split_to_array(coalesce(genres, ''), ',') as genres
+    cast(runtimeMinutes as integer) as runtimeMinutes,
+    case when genres is not null then regexp_split_to_array(genres, ',') else [] end as genres
 
     from source_data_title_basics
 )
