@@ -7,7 +7,7 @@ with exploded as (
     select {{array_column2}} as right_id
     from {{model2}}
 )
-select 1
+select left_id
 from exploded
 left join relational
 on left_id=right_id

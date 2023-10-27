@@ -2,7 +2,8 @@
 version: 2
 
 models:
-  - name: title_crew_model
+  #- name: title_crew_model
+  - name: title_crew_model_cleansed
     description: "The crew working on the production  of the title"
     columns:
       - name: tconst
