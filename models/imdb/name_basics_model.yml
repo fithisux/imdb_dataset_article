@@ -1,0 +1,37 @@
+
+version: 2
+
+models:
+  - name: name_basics_model
+    description: "The details for contributors"
+    tests:
+      - dbt_utils.expression_is_true:
+            expression: "len(primaryProfession) < 4"
+    columns:
+      - name: nconst
+        description: "alphanumeric unique identifier of the name/person"
+        tests:
+          - unique
+          - not_null
+      - name: primaryName
+        description: "name by which the person is most often credited"
+        tests:
+          - not_null
+      - name: birthYear
+        description: "in YYYY format"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ' > 0'
+      - name: deathYear
+        description: "in YYYY format if applicable"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ' > 0'
+      - name: primaryProfession
+        description: "the top-3 professions of the person"
+        tests:
+          - not_null
+      - name: knownForTitles
+        description: "titles the person is known for"
+        tests:
+          - not_null

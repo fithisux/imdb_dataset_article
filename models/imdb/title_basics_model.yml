@@ -33,12 +33,12 @@ models:
         description: "represents the release year of a title. In the case of TV Series, it is the series start year"
         tests:
           - dbt_utils.expression_is_true:
-              expression: ' between 1000 and 9999'
+              expression: " between 1850 and date_part('year', current_date)+10"
       - name: endYear
         description: "TV Series end year. null for all other title types"
         tests:
           - dbt_utils.expression_is_true:
-              expression: ' between 1000 and 9999'
+              expression: " between 1850 and date_part('year', current_date)+10"
       - name: runtimeMinutes
         description: "primary runtime of the title, in minutes"
       - name: genres

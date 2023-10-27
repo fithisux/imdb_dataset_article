@@ -19,10 +19,10 @@ with source_data_name_basics as (
 
     cast(nconst as string) as nconst,
     cast(primaryName as string) as primaryName,
-    cast(birthYear as string) as birthYear,
-    cast(deathYear as string) as deathYear,
-    regexp_split_to_array(coalesce(primaryProfession, ''), ',') as primaryProfession,
-    regexp_split_to_array(coalesce(knownForTitles, '') , ',') as knownForTitles
+    cast(birthYear as integer) as birthYear,
+    cast(deathYear as integer) as deathYear,
+    case when primaryProfession is not null then regexp_split_to_array(primaryProfession, ',') else [] end as primaryProfession,
+    case when knownForTitles is not null then regexp_split_to_array(knownForTitles, ',') else [] end as knownForTitles
 
     from source_data_name_basics
 )
