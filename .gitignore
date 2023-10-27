@@ -1,5 +1,5 @@
 database_files/*
-dbt-packages/*
+dbt_packages/*
 logs/*
 target/*
 .user.yml
