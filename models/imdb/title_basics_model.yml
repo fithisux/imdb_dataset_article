@@ -7,6 +7,38 @@ models:
     tests:
       - dbt_utils.expression_is_true:
             expression: "len(genres) < 4"
+      - array_column_has_specific_values:
+          id_column: tconst
+          array_column: genres
+          value_list:
+            - Comedy
+            - Crime
+            - Family
+            - Romance
+            - Documentary
+            - Musical
+            - Mystery
+            - Horror
+            - Short
+            - Action
+            - Sci-Fi
+            - Fantasy
+            - Talk-Show
+            - Adventure
+            - Drama
+            - War
+            - Game-Show
+            - Reality-TV
+            - Film-Noir
+            - Music
+            - History
+            - Thriller
+            - Western
+            - Animation
+            - Adult
+            - News
+            - Biography
+            - Sport
     columns:
       - name: tconst
         description: "alphanumeric unique identifier of the title"

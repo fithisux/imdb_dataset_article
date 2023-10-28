@@ -25,7 +25,6 @@ models:
       - name: nconst
         description: "alphanumeric unique identifier of the name/person"
         tests:
-          # - unique
           - not_null
           - relationships:
               to: ref('name_basics_model')

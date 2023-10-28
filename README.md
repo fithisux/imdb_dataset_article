@@ -5,6 +5,15 @@ Welcome to your new dbt project!
 Demo code for an article. Download to an `imdb_files` folder in the parent of the repository the files of
 [IMDB NONCOMMERCIAL DATASET](https://developer.imdb.com/non-commercial-datasets/)
 
+Also install depenencies in a virtual environment from `requirments.txt`. In my case
+
+>  pyenv virtualenv 3.11.6 dbt311
+>
+>  pyenv activate dbt311
+>
+>  pip3 install -r requirements.txt
+>
+
 ### Using the starter project
 
 Try running the following commands:
