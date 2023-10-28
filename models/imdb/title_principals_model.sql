@@ -17,12 +17,12 @@ with source_data_title_principals as (
 
     select
 
-    cast(tconst as string) as titleId,
+    cast(tconst as string) as tconst,
     cast(ordering as integer) as ordering,
     cast(nconst as string) as nconst,
     cast(category as string) as category,
     cast(job as string) as job,
-    cast(characters as string) as characters
+    case when characters is not null then regexp_split_to_array(characters, ',') else [] end as characters
 
     FROM source_data_title_principals
 

@@ -10,3 +10,4 @@ select
     attributes, 
     isOriginalTitle
 from {{ref('title_akas_model')}}
+where titleId in (select tconst from {{ref('title_basics_model')}})

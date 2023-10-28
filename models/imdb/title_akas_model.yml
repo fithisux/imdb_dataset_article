@@ -27,6 +27,9 @@ models:
         description: "an alphanumeric identifier of the title"
         tests:
           - not_null
+          - relationships:
+              to: ref('title_basics_model')
+              field: tconst
       - name: ordering
         description: "a number to uniquely identify rows for a given titleId"
         tests:

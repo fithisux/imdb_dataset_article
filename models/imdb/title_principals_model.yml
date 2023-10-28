@@ -1,0 +1,40 @@
+
+version: 2
+
+models:
+  # - name: title_principals_model
+  - name: title_principals_model_cleansed
+    description: "The principals of a title"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - tconst
+            - ordering
+    columns:
+      - name: tconst
+        description: "alphanumeric unique identifier of the title"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('title_basics_model')
+              field: tconst
+      - name: ordering
+        description: "a number to uniquely identify rows for a given titleId"
+        tests:
+          - not_null
+      - name: nconst
+        description: "alphanumeric unique identifier of the name/person"
+        tests:
+          # - unique
+          - not_null
+          - relationships:
+              to: ref('name_basics_model')
+              field: nconst
+      - name: category
+        description: "the category of job that person was in"
+        tests:
+          - not_null
+      - name: job
+        description: "the specific job title if applicable"
+      - name: characters
+        description: "the name of the character played if applicable,"
