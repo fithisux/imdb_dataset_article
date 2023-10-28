@@ -17,6 +17,9 @@ models:
         description: "the type/format of the title (e.g. movie, short, tvseries, tvepisode, video, etc)"
         tests:
           - not_null
+          - relationships:
+              to: ref('title_types')
+              field: title_type
       - name: primaryTitle
         description: "the more popular title / the title used by the filmmakers on promotional materials at the point of release"
         tests:

@@ -1,0 +1,31 @@
+
+version: 2
+
+models:
+  - name: title_episode_model
+    description: "The episode data"
+    columns:
+      - name: tconst
+        description: "alphanumeric identifier of episode"
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('title_basics_model')
+              field: tconst
+      - name: parentTconst
+        description: "alphanumeric identifier of the parent TV Series"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('title_basics_model')
+              field: tconst
+      - name: seasonNumber
+        description: "season number the episode belongs to"
+      - name: episodeNumber
+        description: "episode number of the tconst in the TV series"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: 'is NULL'
+              config:
+                where: 'seasonNumber is NULL'
