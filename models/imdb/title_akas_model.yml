@@ -6,18 +6,6 @@ models:
   - name: title_akas_model_cleansed
     description: "A regional title alias"
     tests:
-      - array_column_has_specific_values:
-          id_column : titleId
-          array_column: types
-          value_list:
-            - alternative
-            - tv
-            - dvd
-            - festival
-            - video
-            - working
-            - original
-            - imdbDisplay
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - titleId
@@ -54,6 +42,9 @@ models:
         description: 'Enumerated set of attributes for this alternative title. New values may be added in the future without warning'
         tests:
           - not_null
+          - array_column_exists_in_table:
+              model2: ref('distribution_types')
+              array_column2: distribution_type
       - name: attributes
         tests:
           - not_null
