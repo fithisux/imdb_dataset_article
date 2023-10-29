@@ -14,6 +14,8 @@ Also install depenencies in a virtual environment from `requirments.txt`. In my 
 >  pip3 install -r requirements.txt
 >
 
+Because of storage shortage the cleansed (or original) datasets are materialized as views
+
 ### Using the starter project
 
 Try running the following commands:
