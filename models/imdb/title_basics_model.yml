@@ -37,6 +37,7 @@ models:
         tests:
           - dbt_utils.expression_is_true:
               expression: ' > 0'
+          # this is a business constraint and not a type constraint  
           # - dbt_utils.expression_is_true:
           #     expression: " between 1850 and date_part('year', current_date)+10"
       - name: endYear
@@ -44,6 +45,7 @@ models:
         tests:
           - dbt_utils.expression_is_true:
               expression: ' > 0'
+          # this is a business constraint and not a type constraint  
           # - dbt_utils.expression_is_true:
           #     expression: " between 1850 and date_part('year', current_date)+10"
       - name: runtimeMinutes
