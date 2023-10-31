@@ -1,0 +1,13 @@
+discover datasets:
+  datasets:
+    - include %
+
+profile columns:
+  columns:
+    - include name_basics_model.%
+    - include title_akas_model_cleansed.%
+    - include title_basics_model.%
+    - include title_crew_model_cleansed.%
+    - include title_episode_model.%
+    - include title_principals_model_cleansed.%
+    - include title_ratings_model.%

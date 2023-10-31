@@ -5,3 +5,4 @@ jupysql
 duckdb-engine
 numpy
 pandas
+soda-core-duckdb
