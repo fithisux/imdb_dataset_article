@@ -1,5 +1,7 @@
 Welcome to your new dbt project!
 
+There is now an [article in Medium](https://fithis2001.medium.com/exploring-the-imdb-dataset-with-dbt-11cd02c025aa)
+
 ### schema-ingestor-article (In Progress)
 
 Demo code for an article. Download to an `imdb_files` folder in the parent of the repository the files of
