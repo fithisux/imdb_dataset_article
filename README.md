@@ -27,6 +27,14 @@ Try running the following commands:
 - dbt run
 - dbt test
 
+### Profiling
+
+There is a jupyter notebook for profiling with jupysql.
+
+For profiling with soda-core, execute (if the existing json does not satisfy you)
+
+- soda scan -d imdb_dataset  -c configuration.yaml checks.yaml -V -srf soda_scan.json
+
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
