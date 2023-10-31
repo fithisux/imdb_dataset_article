@@ -39,4 +39,4 @@ models:
       - name: job
         description: "the specific job title if applicable"
       - name: characters
-        description: "the name of the character played if applicable,"
+        description: "the names of the characters played if applicable,"
