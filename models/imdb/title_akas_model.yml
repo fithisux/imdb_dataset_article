@@ -30,7 +30,7 @@ models:
         description: "the region for this version of the title"
         tests:
           - relationships:
-              to: ref('countries_with_regional_codes')
+              to: ref('region_codes')
               field: alpha2
       - name: language
         description: "the language of the title"

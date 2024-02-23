@@ -22,7 +22,7 @@ with source_data_title_principals as (
     cast(nconst as string) as nconst,
     cast(category as string) as category,
     cast(job as string) as job,
-    case when characters is not null then regexp_split_to_array(characters, ',') else [] end as characters
+    case when characters is not null then  list_transform(cast(characters as string[]), x -> replace(replace(x , '\"', chr(39)),'"', '')) else [] end as characters
 
     FROM source_data_title_principals
 

@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: name_basics_model
+  - name: name_basics_model_cleansed
     description: "The details for contributors"
     tests:
       - dbt_utils.expression_is_true:
@@ -35,3 +35,6 @@ models:
         description: "titles the person is known for"
         tests:
           - not_null
+          - array_column_exists_in_table:
+              model2: ref('title_basics_model')
+              array_column2: tconst
