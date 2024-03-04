@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='table') }}
 
 -- select * from {{ref('title_principals_model')}}
 -- where nconst<>'nm2007716'
