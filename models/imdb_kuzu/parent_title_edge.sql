@@ -1,5 +1,5 @@
 {{ config(materialized='view') }}
 select 
-tconst,
+tconst as epitconst,
 parentTconst as tconst
 from {{ ref('title_episode_model') }}

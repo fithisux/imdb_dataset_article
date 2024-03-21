@@ -1,7 +1,7 @@
 {{ config(materialized='view') }}
 
 select
-tconst,
+tconst as epitconst,
 seasonNumber,
 episodeNumber
 from {{ ref('title_episode_model') }}
