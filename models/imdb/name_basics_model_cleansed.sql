@@ -21,3 +21,4 @@ LATERAL (select flatten(array_agg(xxx)) from (
     UNION ALL 
     SELECT [] as xxx
 )) t2(knownForTitles)
+where primaryName is not NULL

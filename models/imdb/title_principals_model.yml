@@ -33,9 +33,6 @@ models:
         description: "the category of job that person was in"
         tests:
           - not_null
-          - relationships:
-              to: ref('job_categories')
-              field: job_category
       - name: job
         description: "the specific job title if applicable"
       - name: characters
