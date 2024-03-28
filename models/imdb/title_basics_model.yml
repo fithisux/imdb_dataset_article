@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: title_basics_model
+  - name: title_basics_model_cleansed
     description: "The characteristics of the title"
     tests:
       - dbt_utils.expression_is_true:

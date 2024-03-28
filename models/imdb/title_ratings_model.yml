@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: title_ratings_model
+  - name: title_ratings_model_cleansed
     description: "The ratings of a title"
     columns:
       - name: tconst

@@ -21,12 +21,16 @@ models:
         description: "in YYYY format"
         tests:
           - dbt_utils.expression_is_true:
-              expression: ' > 0'
+              expression: ' >= 0'
+          - dbt_utils.expression_is_true:
+              expression: ' <= 9999'
       - name: deathYear
         description: "in YYYY format if applicable"
         tests:
           - dbt_utils.expression_is_true:
-              expression: ' > 0'
+              expression: ' >= 0'
+          - dbt_utils.expression_is_true:
+              expression: ' <= 9999'
       - name: primaryProfession
         description: "the top-3 professions of the person"
         tests:

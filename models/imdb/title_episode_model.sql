@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='view') }}
 
 with source_data_title_episode as (
 
@@ -11,18 +11,6 @@ with source_data_title_episode as (
 
     FROM {{ source('external_source', 'title.episode') }}
 
-), corrected_for_emptiness_title_episode as (
-
-    select
-
-    cast(tconst as string) as tconst,
-    cast(parentTconst as string) as parentTconst,
-    cast(seasonNumber as integer) as seasonNumber,
-    cast(episodeNumber as integer) as episodeNumber
-    
-
-    FROM source_data_title_episode
-
 )
 
-select * from corrected_for_emptiness_title_episode
+select * from source_data_title_episode

@@ -13,19 +13,6 @@ with source_data_title_principals as (
 
     FROM {{ source('external_source', 'title.principals') }}
 
-), corrected_for_emptiness_title_principals as (
-
-    select
-
-    cast(tconst as string) as tconst,
-    cast(ordering as integer) as ordering,
-    cast(nconst as string) as nconst,
-    cast(category as string) as category,
-    cast(job as string) as job,
-    case when characters is not null then  list_transform(cast(characters as string[]), x -> replace(replace(x , '\"', chr(39)),'"', '')) else [] end as characters
-
-    FROM source_data_title_principals
-
 )
 
-select * from corrected_for_emptiness_title_principals
+select * from source_data_title_principals

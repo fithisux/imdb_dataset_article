@@ -2,7 +2,7 @@
 version: 2
 
 models:
-  - name: title_episode_model
+  - name: title_episode_model_cleansed
     description: "The episode data"
     columns:
       - name: tconst

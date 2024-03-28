@@ -13,7 +13,7 @@ SELECT
     deathYear,
     primaryProfession,
     t2.knownForTitles as knownForTitles
-from {{ref('name_basics_model')}} t,
+from {{ref('name_basics_model_casted')}} t,
 LATERAL (select flatten(array_agg(xxx)) from (
     SELECT [knownForTitle] as xxx
     from (select unnest(t.knownForTitles) as knownForTitle)
@@ -22,3 +22,4 @@ LATERAL (select flatten(array_agg(xxx)) from (
     SELECT [] as xxx
 )) t2(knownForTitles)
 where primaryName is not NULL
+and birthYear is not NULL
