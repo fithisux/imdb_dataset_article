@@ -3,4 +3,4 @@
 select 
 tconst as epitconst,
 tconst,
-from {{ ref('title_episode_model') }}
+from {{ ref('title_episode_model_cleansed') }}
