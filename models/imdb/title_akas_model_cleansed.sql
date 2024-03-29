@@ -9,5 +9,5 @@ select
     types, 
     attributes, 
     isOriginalTitle
-from {{ref('title_akas_model')}}
+from {{ref('title_akas_model_casted')}}
 where titleId in (select tconst from {{ref('title_basics_model')}})
