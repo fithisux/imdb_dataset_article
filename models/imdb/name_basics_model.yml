@@ -6,7 +6,7 @@ models:
     description: "The details for contributors"
     tests:
       - dbt_utils.expression_is_true:
-            expression: "len(primaryProfession) < 4"
+          expression: "len(primaryProfession) < 4"
     columns:
       - name: nconst
         description: "alphanumeric unique identifier of the name/person"
@@ -40,5 +40,5 @@ models:
         tests:
           - not_null
           - array_column_exists_in_table:
-              model2: ref('title_basics_model')
+              model2: ref('title_basics_model_cleansed')
               array_column2: tconst

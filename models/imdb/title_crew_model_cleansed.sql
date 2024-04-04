@@ -32,3 +32,4 @@ select flatten(array_agg(xxx2)) from (
 	    SELECT [] as xxx2
 	)
 ) t3(directors)
+where tconst in (select tconst from {{ref('title_basics_model_cleansed')}})
