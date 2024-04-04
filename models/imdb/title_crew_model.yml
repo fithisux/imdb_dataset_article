@@ -12,7 +12,7 @@ models:
           - unique
           - not_null
           - relationships:
-              to: ref('title_basics_model_Cleansed')
+              to: ref('title_basics_model_cleansed')
               field: tconst
       - name: directors
         description: "director(s) of the given title"
