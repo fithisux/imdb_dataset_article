@@ -12,19 +12,19 @@ models:
           - unique
           - not_null
           - relationships:
-              to: ref('title_basics_model')
+              to: ref('title_basics_model_Cleansed')
               field: tconst
       - name: directors
         description: "director(s) of the given title"
         tests:
           - not_null
           - array_column_exists_in_table:
-              model2: ref('name_basics_model')
+              model2: ref('name_basics_model_cleansed')
               array_column2: nconst
       - name: writers
         description: "writer(s) of the given title"
         tests:
           - not_null
           - array_column_exists_in_table:
-              model2: ref('name_basics_model')
+              model2: ref('name_basics_model_cleansed')
               array_column2: nconst
