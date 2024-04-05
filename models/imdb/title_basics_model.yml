@@ -7,6 +7,10 @@ models:
     tests:
       - dbt_utils.expression_is_true:
             expression: "len(genres) < 4"
+      - strictly_left_smaller_than_right:
+          id: tconst
+          left_column_name: startYear
+          right_column_name: endYear
     columns:
       - name: tconst
         description: "alphanumeric unique identifier of the title"
