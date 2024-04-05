@@ -33,18 +33,16 @@ models:
         description: "represents the release year of a title. In the case of TV Series, it is the series start year"
         tests:
           - dbt_utils.expression_is_true:
-              expression: ' > 0'
-          # this is a business constraint and not a type constraint  
-          # - dbt_utils.expression_is_true:
-          #     expression: " between 1850 and date_part('year', current_date)+10"
+              expression: ' >= 1000'
+          - dbt_utils.expression_is_true:
+              expression: ' <= 9999'
       - name: endYear
         description: "TV Series end year. null for all other title types"
         tests:
           - dbt_utils.expression_is_true:
-              expression: ' > 0'
-          # this is a business constraint and not a type constraint  
-          # - dbt_utils.expression_is_true:
-          #     expression: " between 1850 and date_part('year', current_date)+10"
+              expression: ' >= 1000'
+          - dbt_utils.expression_is_true:
+              expression: ' <= 9999'
       - name: runtimeMinutes
         description: "primary runtime of the title, in minutes"
       - name: genres

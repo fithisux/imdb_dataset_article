@@ -7,6 +7,10 @@ models:
     tests:
       - dbt_utils.expression_is_true:
           expression: "len(primaryProfession) < 4"
+      - left_smaller_than_right:
+          id: nconst
+          left_column_name: birthYear
+          right_column_name: deathYear
     columns:
       - name: nconst
         description: "alphanumeric unique identifier of the name/person"
@@ -21,14 +25,14 @@ models:
         description: "in YYYY format"
         tests:
           - dbt_utils.expression_is_true:
-              expression: ' >= 0'
+              expression: ' >= 1000'
           - dbt_utils.expression_is_true:
               expression: ' <= 9999'
       - name: deathYear
         description: "in YYYY format if applicable"
         tests:
           - dbt_utils.expression_is_true:
-              expression: ' >= 0'
+              expression: ' >= 1000'
           - dbt_utils.expression_is_true:
               expression: ' <= 9999'
       - name: primaryProfession
