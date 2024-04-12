@@ -17,6 +17,7 @@ models:
         tests:
           - unique
           - not_null
+          - col_is_alphanumeric
       - name: titleType
         description: "the type/format of the title (e.g. movie, short, tvseries, tvepisode, video, etc)"
         tests:

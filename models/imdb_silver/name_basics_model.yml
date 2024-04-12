@@ -17,6 +17,7 @@ models:
         tests:
           - unique
           - not_null
+          - col_is_alphanumeric
       - name: primaryName
         description: "name by which the person is most often credited"
         tests:
