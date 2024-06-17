@@ -1,4 +1,4 @@
-database_files/*
+database_files/dev*
 dbt_packages/*
 logs/*
 target/*
