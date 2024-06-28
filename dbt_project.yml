@@ -40,3 +40,5 @@ models:
       +schema: imdb_silver
     imdb_kuzu:
       +schema: imdb_kuzu
+    imdb_apache_age:
+      +schema: imdb_apache_age
