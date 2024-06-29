@@ -1,7 +1,8 @@
 {{ config(materialized='view') }}
 
 select
-titleId || '_' || cast(ordering as string) as id, 
+titleId || '_' || cast(ordering as string) as akas_id, 
+titleId
 ordering, 
 title, 
 isOriginalTitle 
