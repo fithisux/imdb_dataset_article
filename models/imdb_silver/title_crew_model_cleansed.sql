@@ -2,8 +2,8 @@
 
 SELECT 
     tconst,
-    t2.writers as writers,
-    t3.directors as directors
+    list_sort(t2.writers) as writers,
+    list_sort(t3.directors) as directors
 from {{ref('title_crew_model_casted')}} t,
 LATERAL (
 select flatten(array_agg(xxx1)) from (

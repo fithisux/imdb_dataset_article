@@ -34,7 +34,7 @@ unit_tests:
     given:
       - input: ref('title_crew_model_casted')
         rows:
-          - {tconst: 1, writers: [AA, DD], directors: [EE, BB]}
+          - {tconst: 1, writers: [BB, AA, DD], directors: [EE, BB]}
           - {tconst: 2, writers: [EE, BB], directors: [AA, DD]}
           - {tconst: 4, writers: [EE], directors: []}
           - {tconst: 3, writers: [AA], directors: [BB]}
@@ -50,6 +50,6 @@ unit_tests:
           - {tconst: 4}
     expect:
       rows:
-        - {tconst: 1, writers: [AA], directors: [BB]}
+        - {tconst: 1, writers: [AA, BB], directors: [BB]}
         - {tconst: 2, writers: [BB], directors: [AA]}
         - {tconst: 4, writers: [], directors: []}
