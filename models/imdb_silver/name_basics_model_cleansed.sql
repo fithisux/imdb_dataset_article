@@ -7,7 +7,7 @@ SELECT
     birthYear,
     deathYear,
     primaryProfession,
-    t2.knownForTitles as knownForTitles
+    list_sort(t2.knownForTitles) as knownForTitles
 from {{ref('name_basics_model_casted')}} t,
 LATERAL (select flatten(array_agg(xxx)) from (
     SELECT [knownForTitle] as xxx

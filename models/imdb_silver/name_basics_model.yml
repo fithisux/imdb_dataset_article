@@ -47,3 +47,25 @@ models:
           - array_column_exists_in_table:
               model2: ref('title_basics_model_cleansed')
               array_column2: tconst
+unit_tests:
+  - name: test_is_valid_known_for_title_cleansing
+    description: "Blah"
+    model: name_basics_model_cleansed
+    given:
+      - input: ref('name_basics_model_casted')
+        rows:
+          - {nconst: AA, knownForTitles: [1, 2 ,3], primaryName: AP, birthYear: null, deathYear: null, primaryProfession: [blah1]}
+          - {nconst: BB, knownForTitles: [], primaryName: BP, birthYear: null, deathYear: null, primaryProfession: [blah2]}
+          - {nconst: CC, knownForTitles: [5, 6, 3], primaryName: CP, birthYear: null, deathYear: null, primaryProfession: [blah3]}
+          - {nconst: DD, knownForTitles: [7, 8], primaryName: DP, birthYear: null, deathYear: null, primaryProfession: [blah4]}
+      - input: ref('title_basics_model_cleansed')
+        rows:
+          - {tconst: 1}
+          - {tconst: 2}
+          - {tconst: 3}
+    expect:
+      rows:
+          - {nconst: AA, knownForTitles: [1, 2 ,3], primaryName: AP, birthYear: null, deathYear: null, primaryProfession: [blah1]}
+          - {nconst: BB, knownForTitles: [], primaryName: BP, birthYear: null, deathYear: null, primaryProfession: [blah2]}
+          - {nconst: CC, knownForTitles: [3], primaryName: CP, birthYear: null, deathYear: null, primaryProfession: [blah3]}
+          - {nconst: DD, knownForTitles: [], primaryName: DP, birthYear: null, deathYear: null, primaryProfession: [blah4]}
