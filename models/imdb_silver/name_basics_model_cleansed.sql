@@ -1,10 +1,5 @@
 {{ config(materialized='table') }}
 
--- select 
--- tconst,
--- list_filter(writers, x -> x <> 'nm2007716') as writers,
--- list_filter(directors, x -> x <> 'nm12428300') as directors
--- from {{ref('title_crew_model')}}
 
 SELECT 
     nconst,
@@ -22,8 +17,6 @@ LATERAL (select flatten(array_agg(xxx)) from (
     SELECT [] as xxx
 )) t2(knownForTitles)
 where primaryName is not NULL
-and birthYear is not NULL
-and birthYear >= 1000 
-and birthYear <= 9999
-and ( (deathYear is null) or ( (deathYear is not null) and (deathYear >= 1000 ) and (deathYear <= 9999)))
-and ( (deathYear is null) or (birthYear is null)  or ( (deathYear is not null) and (birthYear is not null) and (deathYear > birthYear)))
+and ( (birthYear is null) or ((birthYear >= 1000) and (birthYear <= 9999)))
+and ( (deathYear is null) or ((deathYear >= 1000) and (deathYear <= 9999)))
+and ( (deathYear is null) or (birthYear is null) or (deathYear > birthYear))

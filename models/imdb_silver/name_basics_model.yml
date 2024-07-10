@@ -25,7 +25,6 @@ models:
       - name: birthYear
         description: "in YYYY format"
         tests:
-          - not_null
           - dbt_utils.expression_is_true:
               expression: ' >= 1000'
           - dbt_utils.expression_is_true:

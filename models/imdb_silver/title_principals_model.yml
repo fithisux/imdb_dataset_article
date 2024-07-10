@@ -2,7 +2,6 @@
 version: 2
 
 models:
-  # - name: title_principals_model
   - name: title_principals_model_cleansed
     description: "The principals of a title"
     tests:

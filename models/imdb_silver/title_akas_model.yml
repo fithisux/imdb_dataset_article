@@ -2,7 +2,6 @@
 version: 2
 
 models:
-  #- name: title_akas_model_casted
   - name: title_akas_model_cleansed
     description: "A regional title alias"
     tests:

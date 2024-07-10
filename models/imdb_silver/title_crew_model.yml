@@ -2,7 +2,6 @@
 version: 2
 
 models:
-  #- name: title_crew_model
   - name: title_crew_model_cleansed
     description: "The crew working on the production  of the title"
     columns:
@@ -28,3 +27,29 @@ models:
           - array_column_exists_in_table:
               model2: ref('name_basics_model_cleansed')
               array_column2: nconst
+unit_tests:
+  - name: test_is_valid_director_and_writer_cleansing
+    description: "Blah"
+    model: title_crew_model_cleansed
+    given:
+      - input: ref('title_crew_model_casted')
+        rows:
+          - {tconst: 1, writers: [AA, DD], directors: [EE, BB]}
+          - {tconst: 2, writers: [EE, BB], directors: [AA, DD]}
+          - {tconst: 4, writers: [EE], directors: []}
+          - {tconst: 3, writers: [AA], directors: [BB]}
+      - input: ref('name_basics_model_cleansed')
+        rows:
+          - {nconst: AA}
+          - {nconst: BB}
+          - {nconst: CC}
+      - input: ref('title_basics_model_cleansed')
+        rows:
+          - {tconst: 1}
+          - {tconst: 2}
+          - {tconst: 4}
+    expect:
+      rows:
+        - {tconst: 1, writers: [AA], directors: [BB]}
+        - {tconst: 2, writers: [BB], directors: [AA]}
+        - {tconst: 4, writers: [], directors: []}
