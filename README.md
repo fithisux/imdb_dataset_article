@@ -10,9 +10,9 @@ Demo code for an article. Download to an `imdb_files` folder in the parent of th
 
 Also install depenencies in a virtual environment from `requirments.txt`. In my case
 
->  pyenv virtualenv 3.11.6 dbt311
+>  pyenv virtualenv 3.12.4 dbt312
 >
->  pyenv activate dbt311
+>  pyenv activate dbt312
 >
 >  pip3 install -r requirements.txt
 >

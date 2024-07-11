@@ -4,10 +4,10 @@ discover datasets:
 
 profile columns:
   columns:
-    - include name_basics_model.%
-    - include title_akas_model_cleansed.%
-    - include title_basics_model.%
-    - include title_crew_model_cleansed.%
-    - include title_episode_model.%
-    - include title_principals_model_cleansed.%
-    - include title_ratings_model.%
+    - include main_imdb_silvername_basics_model_cleansed.%
+    - include main_imdb_silvertitle_akas_model_cleansed.%
+    - include main_imdb_silvertitle_basics_model_cleansed.%
+    - include main_imdb_silvertitle_crew_model_cleansed.%
+    - include main_imdb_silvertitle_episode_model_cleansed.%
+    - include main_imdb_silvertitle_principals_model_cleansed.%
+    - include main_imdb_silvertitle_ratings_model_cleansed.%
