@@ -1,3 +1,4 @@
 data_source imdb_dataset:
   type: duckdb
   path: "database_files/dev.duckdb"
+  schema: main_imdb_silver

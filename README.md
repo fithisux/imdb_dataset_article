@@ -38,6 +38,8 @@ For profiling with soda-core, execute (if the existing json does not satisfy you
 
 - soda scan -d imdb_dataset  -c configuration.yaml checks.yaml -V -srf soda_scan.json
 
+![alt text](screenshots/jupysql_profiling.png "Sample profile of title_principals_modle_cleansed")
+
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
