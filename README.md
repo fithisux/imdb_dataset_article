@@ -1,6 +1,7 @@
 Welcome to your new dbt project!
 
-There is now an [article in Medium](https://fithis2001.medium.com/exploring-the-imdb-dataset-with-dbt-11cd02c025aa)
+There is now an [Exploration article in Medium](https://fithis2001.medium.com/exploring-the-imdb-dataset-with-dbt-11cd02c025aa)
+and a more in depth one [Lateral joins article in Medium](https://fithis2001.medium.com/lateral-joins-in-duckdb-a024f3609405)
 
 ### schema-ingestor-article (In Progress)
 
