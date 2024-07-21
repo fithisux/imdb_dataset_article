@@ -1,8 +1,5 @@
+dbt-core
 dbt-duckdb
-jupyter
 notebook
 jupysql 
-duckdb-engine
-numpy
-pandas
 soda-core-duckdb

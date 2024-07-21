@@ -5,3 +5,4 @@ target/*
 .user.yml
 **/.DS_Store
 .ipynb_checkpoints/*
+venv/*
